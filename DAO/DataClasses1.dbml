@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LOLAssistantDataBase" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=ASPNET-PC;Initial Catalog=LOLAssistantDataBase;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LOLAssistantDataBaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[user]" Member="user">
+    <Type Name="user">
+      <Column Name="username" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nickname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="levelpoint" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="[e-mail]" Member="e_mail" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="user_lol" Member="lol" ThisKey="username" OtherKey="username" Type="lol" />
+    </Type>
+  </Table>
+  <Table Name="dbo.lol" Member="lol">
+    <Type Name="lol">
+      <Column Name="lolusername" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="lolpassword" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="lol_infodistrict" Member="infodistrict" ThisKey="lolusername" OtherKey="lolusername" Type="infodistrict" />
+      <Association Name="user_lol" Member="user" ThisKey="username" OtherKey="username" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.infodistrict" Member="infodistrict">
+    <Type Name="infodistrict">
+      <Column Name="districtID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="lolusername" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="[level]" Member="level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="lol_infodistrict" Member="lol" ThisKey="lolusername" OtherKey="lolusername" Type="lol" IsForeignKey="true" />
+      <Association Name="district_infodistrict" Member="district" ThisKey="districtID" OtherKey="districtID" Type="district" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.district" Member="district">
+    <Type Name="district">
+      <Column Name="districtID" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="district_infodistrict" Member="infodistrict" ThisKey="districtID" OtherKey="districtID" Type="infodistrict" />
+    </Type>
+  </Table>
+</Database>
