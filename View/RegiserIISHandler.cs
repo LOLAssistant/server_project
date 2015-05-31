@@ -31,13 +31,14 @@ namespace View
             //在此写入您的处理程序实现
 
             DAO.user user=new DAO.user();
-            user.username = "hhhh";
-            user.password = "hhhhhhh";
-            user.nickname = "hhhh";
-            user.ID = "2342352352";
-            user.levelpoint = 0;
-            user.phone = "333";
-            user.e_mail = "123123@bb";
+
+            user.username = context.Request.Form["username"];
+            user.password = context.Request.Form["password"];
+            user.nickname = context.Request.Form["nickname"];
+            user.ID =context.Request.Form["id"];
+            user.levelpoint = 1;
+            user.phone = context.Request.Form["phone"];
+            user.e_mail = context.Request.Form["email"];
 
             if (register.RegisterUser(user))
             {

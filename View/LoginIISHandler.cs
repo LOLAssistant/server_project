@@ -27,8 +27,8 @@ namespace View
         public void ProcessRequest(HttpContext context)
         {
             
-            //String username = context.Request.Form["username"];
-            //String password = context.Request.Form["password"];
+            String username = context.Request.Form["username"];
+            String password = context.Request.Form["password"];
             context.Response.ContentType = "text/plain";
 
 
@@ -36,9 +36,9 @@ namespace View
            //LOLWebservice.CheckUserServiceSoapClient checkuserService = new LOLWebservice.CheckUserServiceSoapClient();
             //context.Response.Write(checkuserService.matching("hanchunyu","hehehehe"));
 
-            String username = "han1993";
-            String password = "123456";
-            if (login.isLogin(username, password))
+            //String username = "han1993";
+            //String password = "123456";
+            if (username!=null&&password!=null&&login.isLogin(username, password))
             {
                 context.Response.Write("true");
             }
