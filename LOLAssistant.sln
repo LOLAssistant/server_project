@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{F9860879-2E49-459E-BE3A-BE29C7F202FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Control", "View\Control.csproj", "{F9860879-2E49-459E-BE3A-BE29C7F202FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{24630792-48A3-4116-AE24-F20C1CF08880}"
 EndProject

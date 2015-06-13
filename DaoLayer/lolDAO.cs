@@ -13,7 +13,6 @@ namespace DaoLayer
         public bool insertLOL(DAO.lol _lol)
         {
             db.lol.InsertOnSubmit(_lol);
-
             try
             {
                 db.SubmitChanges();
@@ -43,5 +42,13 @@ namespace DaoLayer
             //这里只会有唯一的一个返回结果
             return lols;
         }
+
+        public DAO.lol getlolbyqq(String qq)
+        {
+
+            return null;
+        }
+
+        
     }
 }

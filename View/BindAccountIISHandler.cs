@@ -31,12 +31,12 @@ namespace View
             //在此写入您的处理程序实现。
 
             DAO.lol lol = new DAO.lol();
-            lol.lolusername = "123456";
-            lol.lolpassword = "123456";
-            lol.username = "han1993";
-            LOLWebservice.CheckUserServiceSoapClient checkuserService = new LOLWebservice.CheckUserServiceSoapClient();
-            if (checkuserService.matching(lol.lolusername, lol.lolpassword))
-            {
+            lol.lolusername = context.Request.Form["qq"];
+            lol.lolpassword = context.Request.Form["password"];
+            lol.username = context.Request.Form["username"];
+            //LOLWebservice.CheckUserServiceSoapClient checkuserService = new LOLWebservice.CheckUserServiceSoapClient();
+            //if (checkuserService.matching(lol.lolusername, lol.lolpassword))
+            //{
                 if (BindAccount.BindLOLAccount(lol))
                 {
                     context.Response.Write("true");
@@ -45,11 +45,11 @@ namespace View
                 {
                     context.Response.Write("false");
                 }
-            }
-            else
-            {
-                context.Response.Write("false");
-            }
+           // }
+            //else
+            //{
+              //  context.Response.Write("false");
+            //}
 
         }
 
