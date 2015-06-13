@@ -22,6 +22,21 @@ namespace View
         public void ProcessRequest(HttpContext context)
         {
             //在此写入您的处理程序实现。
+
+            String username="";
+            String qq="";
+
+            BusinessLayer.Borrow borrow = new BusinessLayer.Borrow();
+
+            if (borrow.BorrowAccount(qq))
+            {
+                context.Response.Write("true");
+            }
+            else
+            {
+                context.Response.Write("false");
+            }
+
         }
 
         #endregion

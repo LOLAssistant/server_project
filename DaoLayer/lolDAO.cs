@@ -46,9 +46,25 @@ namespace DaoLayer
         public DAO.lol getlolbyqq(String qq)
         {
 
-            return null;
+            DAO.lol lol=db.lol.Single(d=>d.lolusername==qq);
+
+            return lol;
         }
 
-        
+        public bool changeState(DAO.lol lol)
+        {
+             try
+        {
+            
+            DAO.lol loltemp = db.lol.Single(d => d.lolusername == lol.lolusername);
+            loltemp.state = lol.state;
+            db.SubmitChanges();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
     }
 }
