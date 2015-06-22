@@ -34,9 +34,15 @@ namespace View
             lol.lolusername = context.Request.Form["qq"];
             lol.lolpassword = context.Request.Form["password"];
             lol.username = context.Request.Form["username"];
+            localhost.CheckUserService service = new localhost.CheckUserService();
+            localhost.IDSoapHeader IDHeader = new localhost.IDSoapHeader();
+            IDHeader.UserName = "wangchao";
+            IDHeader.PassWord = "wangchao";
+            service.IDSoapHeaderValue = IDHeader;
+
             //LOLWebservice.CheckUserServiceSoapClient checkuserService = new LOLWebservice.CheckUserServiceSoapClient();
-            //if (checkuserService.matching(lol.lolusername, lol.lolpassword))
-            //{
+            if (service.matching(lol.lolusername, lol.lolpassword))
+            {
                 if (BindAccount.BindLOLAccount(lol))
                 {
                     context.Response.Write("true");
@@ -45,11 +51,11 @@ namespace View
                 {
                     context.Response.Write("false");
                 }
-           // }
-            //else
-            //{
-              //  context.Response.Write("false");
-            //}
+            }
+            else
+            {
+                context.Response.Write("false");
+            }
 
         }
 

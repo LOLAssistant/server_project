@@ -30,6 +30,13 @@ namespace View
 
             if (borrow.BorrowAccount(qq))
             {
+
+                localhost.CheckUserService service = new localhost.CheckUserService();
+                localhost.IDSoapHeader header = new localhost.IDSoapHeader();
+                header.UserName = "wangchao";
+                header.PassWord = "wangchao";
+                service.IDSoapHeaderValue = header;
+                service.extractCode_record("提取码", "用户名");
                 context.Response.Write("true");
             }
             else
